@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "prettier": "^3.1.1",
+    "uglify-js": "^3.17.4"
+  },
+  "scripts": {
+    "uglify": "uglifyjs cfe.js -c -m -o cfe.min.js"
+  }
+}
