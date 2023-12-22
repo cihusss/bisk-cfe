@@ -4,6 +4,11 @@
     "uglify-js": "^3.17.4"
   },
   "scripts": {
-    "uglify": "uglifyjs cfe.js -c -m -o cfe.min.js"
+    "build": "webpack",
+    "uglify": "uglifyjs src/index.js -c -m -o cfe.min.js"
+  },
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   }
 }
