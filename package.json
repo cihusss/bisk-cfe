@@ -1,11 +1,9 @@
 {
   "dependencies": {
-    "prettier": "^3.1.1",
-    "uglify-js": "^3.17.4"
+    "prettier": "^3.1.1"
   },
   "scripts": {
-    "build": "webpack",
-    "uglify": "uglifyjs src/index.js -c -m -o cfe.min.js"
+    "build": "webpack"
   },
   "devDependencies": {
     "webpack": "^5.89.0",
