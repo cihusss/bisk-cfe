@@ -1,9 +1,11 @@
 {
   "dependencies": {
-    "prettier": "^3.1.1"
+    "prettier": "^3.1.1",
+    "watch": "^1.0.2"
   },
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --watch",
+    "watch": "watch 'npm run build' dist"
   },
   "devDependencies": {
     "webpack": "^5.89.0",
