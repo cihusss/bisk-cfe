@@ -1,5 +1,5 @@
 import { UtmHandler } from './UtmHandler';
-import { mainData, sendToServer } from '../DataProcessor/DataProcessor';
+import { mainData } from '../DataProcessor/DataProcessor';
 
 export const UtmManager = () => {
   console.log(`\nUTM MANAGER ------------------------->`);
@@ -38,5 +38,6 @@ export const UtmManager = () => {
   }
 
   // Populate mainData object
-  mainData.utmManager = utmData;
+  mainData.utmMedium = localStorage.getItem('utm_medium');
+  mainData.utmCampaign = localStorage.getItem('utm_campaign');
 };
