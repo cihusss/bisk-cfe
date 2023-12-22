@@ -1,7 +1,6 @@
 import { EventDispatcher } from './EventDispatcher';
 
 export const EventManager = (e) => {
-
   // Get all buttons
   const elements = document.querySelectorAll('.form-btn,.cfe-trigger');
 
@@ -17,4 +16,4 @@ export const EventManager = (e) => {
       }
     });
   }
-}
+};

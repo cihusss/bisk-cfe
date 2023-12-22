@@ -4,9 +4,9 @@ import { UtmManager } from './modules/UtmManager';
 
 const App = () => {
   window.addEventListener('load', (e) => {
+    UtmManager();
     EventManager();
     MetaPixelExtractor();
-    UtmManager();
   });
 };
 
