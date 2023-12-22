@@ -1,5 +1,5 @@
 export const UtmHandler = (a, b, c) => {
-  // const { utmMediumParam, utmMediumStorage } = utmData;
+  console.log(`\nUTM HANDLER ------------------------->`);
 
   console.log(`${c}:`, a);
   console.log('localStorage:', b);

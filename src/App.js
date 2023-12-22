@@ -1,6 +1,6 @@
-import { EventManager } from './modules/EventManager';
-import { MetaPixelExtractor } from './modules/MetaPixelExtractor';
-import { UtmManager } from './modules/UtmManager';
+import { EventManager } from './modules/EventManager/EventManager';
+import { MetaPixelExtractor } from './modules/DataProcessor/MetaPixelExtractor';
+import { UtmManager } from './modules/UtmManager/UtmManager';
 
 const App = () => {
   window.addEventListener('load', (e) => {

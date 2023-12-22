@@ -1,4 +1,6 @@
 export const MetaPixelExtractor = () => {
+  console.log(`\nMETA PIXEL EXTRACTOR ------------------------->`)
+
   let metaPixel;
   const scripts = document.querySelectorAll('script');
 
