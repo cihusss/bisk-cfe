@@ -1,7 +1,7 @@
-import {UtmHandler} from './UtmHandler';
+import { UtmHandler } from './UtmHandler';
 
 export const UtmManager = () => {
-  console.log(`\nUTM MANAGER ------------------------->`)
+  console.log(`\nUTM MANAGER ------------------------->`);
 
   // Get URL params
   const searchParams = new URLSearchParams(window.location.search);
@@ -23,7 +23,11 @@ export const UtmManager = () => {
 
   for (let key in utmData) {
     if (utmData[key].utm) {
-      UtmHandler(utmData[key].utm, utmData[key].localStorage, utmData[key].label);
+      UtmHandler(
+        utmData[key].utm,
+        utmData[key].localStorage,
+        utmData[key].label
+      );
     }
   }
 };
