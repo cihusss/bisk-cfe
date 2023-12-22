@@ -1,4 +1,5 @@
 import { UtmHandler } from './UtmHandler';
+import { mainData, sendToServer } from '../DataProcessor/DataProcessor';
 
 export const UtmManager = () => {
   console.log(`\nUTM MANAGER ------------------------->`);
@@ -35,4 +36,7 @@ export const UtmManager = () => {
       );
     }
   }
+
+  // Populate mainData object
+  mainData.utmManager = utmData;
 };

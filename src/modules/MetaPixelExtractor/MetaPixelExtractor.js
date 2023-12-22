@@ -1,3 +1,5 @@
+import {mainData} from '../DataProcessor/DataProcessor';
+
 export const MetaPixelExtractor = () => {
   console.log(`\nMETA PIXEL EXTRACTOR ------------------------->`);
 
@@ -13,4 +15,7 @@ export const MetaPixelExtractor = () => {
       console.log('metaPixelID:', metaPixel);
     }
   }
+
+  // Populate mainData object
+  mainData.metaPixel = metaPixel;
 };
