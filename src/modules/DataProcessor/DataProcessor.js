@@ -14,6 +14,7 @@ export const getFormData = (e) => {
   MktoForms2.whenReady(function (form) {
     form.onSuccess(function (values, followUpUrl) {
       const formVals = form.vals();
+      console.log('formVals: ', formVals);
       mainData.formData = formVals;
       sendToServer();
     });
