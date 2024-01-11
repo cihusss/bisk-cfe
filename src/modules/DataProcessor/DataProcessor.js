@@ -7,7 +7,7 @@ export const getUserAgent = () => {
 
 export const sendToServer = () => {
   console.log(`\nSEND TO SERVER ------------------------->`);
-  console.log('sendToServer', mainData);
+  console.log(mainData);
 };
 
 export const getFormData = (e) => {
