@@ -5,10 +5,14 @@ export const getUserAgent = () => {
   mainData.userAgent = navigator.userAgent;
 };
 
-export const sendToServer = () => {
-  console.log(`\nSEND TO SERVER ------------------------->`);
+export const printData = () => {
   console.log(mainData);
-  fetch('https://labs.bisk.com', {
+};
+
+export const sendToServer = () => {
+  console.log(`\nSENDING TO SERVER ------------------------->`);
+
+  fetch('localhost', {
     method: 'POST',
     body: JSON.stringify(mainData),
     headers: {
@@ -28,12 +32,18 @@ export const sendToServer = () => {
 };
 
 export const getFormData = (e) => {
-  MktoForms2.whenReady(function (form) {
-    form.onSuccess(function (values, followUpUrl) {
-      const formVals = form.vals();
-      // console.log('formVals: ', formVals);
-      mainData.formData = formVals;
-      sendToServer();
+  try {
+    MktoForms2.whenReady(function (form) {
+      form.onSuccess(function (values, followUpUrl) {
+        const formVals = form.vals();
+        // console.log('formVals: ', formVals);
+        mainData.formData = formVals;
+        sendToServer();
+      });
     });
-  });
+  } catch (err) {
+    console.log('err', err);
+  } finally {
+    console.log(mainData);
+  }
 };
