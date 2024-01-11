@@ -8,7 +8,23 @@ export const getUserAgent = () => {
 export const sendToServer = () => {
   console.log(`\nSEND TO SERVER ------------------------->`);
   console.log(mainData);
-  console.dir(mainData);
+  fetch('https://labs.bisk.com', {
+    method: 'POST',
+    body: JSON.stringify(mainData),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((response) => {
+      console.log('response', response);
+      return response.json();
+    })
+    .then((json) => {
+      console.log('json', json);
+    })
+    .catch((err) => {
+      console.log('err', err);
+    });
 };
 
 export const getFormData = (e) => {
