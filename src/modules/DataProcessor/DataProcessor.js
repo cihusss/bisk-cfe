@@ -7,6 +7,7 @@ export const getUserAgent = () => {
 
 export const sendToServer = () => {
   console.log(`\nSEND TO SERVER ------------------------->`);
+  console.log(mainData);
   console.dir(mainData);
 };
 
