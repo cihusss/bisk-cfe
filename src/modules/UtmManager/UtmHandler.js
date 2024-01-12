@@ -8,17 +8,17 @@ export const UtmHandler = (a, b, c) => {
     console.log('BOTH NULL > doing nothing');
   } else if (a && !b) {
     localStorage.setItem(c, a);
-    console.log('utm HERE > storing UTM');
+    console.log('utm PRESENT > storing UTM');
   } else if (!a && b) {
-    console.log('localStorage HERE > doing nothing');
+    console.log('localStorage PRESENT > doing nothing');
   } else if (a && b) {
     if (a !== b) {
       localStorage.setItem(c, a);
       console.log(
-        'BOTH HERE > utm DIFFERENT from localStorage > storing new utm'
+        'BOTH PRESENT > utm DIFFERENT from localStorage > storing new utm'
       );
     } else {
-      console.log('BOTH HERE and MATCHING > doing nothing');
+      console.log('BOTH PRESENT and MATCHING > doing nothing');
     }
   }
 };

@@ -2,7 +2,7 @@ import { UtmHandler } from './UtmHandler';
 import { mainData } from '../DataProcessor/DataProcessor';
 
 export const UtmManager = () => {
-  console.log(`\nUTM MANAGER ------------------------->!`);
+  // console.log(`\nUTM MANAGER ------------------------->!`);
 
   // Instantiate URLSearchParams object
   const searchParams = new URLSearchParams(window.location.search);
@@ -24,7 +24,7 @@ export const UtmManager = () => {
   };
 
   // log utmData object
-  console.log('utmData:', utmData);
+  // console.log('utmData:', utmData);
 
   // Run UtmHandler for each utmData object
   for (let key in utmData) {

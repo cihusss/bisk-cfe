@@ -1,12 +1,13 @@
 export const mainData = {};
 
 export const getUserAgent = () => {
-  console.log('userAgent', navigator.userAgent);
+  console.log(`\nUSER AGENT EXTRACTOR ------------------------->`);
+  console.log('userAgent: ', navigator.userAgent);
   mainData.userAgent = navigator.userAgent;
 };
 
 export const printData = () => {
-  console.log(mainData);
+  console.log('\n' + mainData);
 };
 
 export const sendToServer = () => {
