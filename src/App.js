@@ -4,8 +4,6 @@ import { UtmManager } from './modules/UtmManager/UtmManager';
 import {
   getUserAgent,
   getFormData,
-  sendToServer,
-  printData,
 } from './modules/DataProcessor/DataProcessor';
 
 const App = () => {
