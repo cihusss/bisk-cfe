@@ -12,7 +12,7 @@ export const printData = () => {
 export const sendToServer = () => {
   console.log(`\nSENDING TO SERVER ------------------------->`);
 
-  fetch('http://labs.bisk.com', {
+  fetch('https://labs.bisk.com', {
     mode: 'cors',
     method: 'POST',
     body: JSON.stringify(mainData),
