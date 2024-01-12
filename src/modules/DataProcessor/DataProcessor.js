@@ -38,6 +38,7 @@ export const getFormData = (e) => {
         const formVals = form.vals();
         // console.log('formVals: ', formVals);
         mainData.formData = formVals;
+        mainData.event = 'MarketoFormSubmit';
         sendToServer();
       });
     });
