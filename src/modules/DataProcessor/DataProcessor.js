@@ -12,12 +12,11 @@ export const printData = () => {
 export const sendToServer = () => {
   console.log(`\nSENDING TO SERVER ------------------------->`);
 
-  fetch('localhost', {
+  fetch('http://labs.bisk.com', {
+    mode: 'cors',
     method: 'POST',
     body: JSON.stringify(mainData),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
+    headers: { 'Content-Type': 'application/json' },
   })
     .then((response) => {
       console.log('response', response);
