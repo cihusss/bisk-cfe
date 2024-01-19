@@ -55,7 +55,7 @@ export const getFormData = (e) => {
 
         // Instantiate URLSearchParams object
         utmParameters.forEach((parameter) => {
-          if (localStorage.getItem(parameter)) {
+          if (localStorage.getItem(parameter) !== null) {
             mainData['utmParameters'][parameter] = {
               utm: localStorage.getItem(parameter),
               label: parameter,
