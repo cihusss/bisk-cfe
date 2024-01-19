@@ -56,10 +56,12 @@ export const getFormData = (e) => {
         // Instantiate URLSearchParams object
         utmParameters.forEach((parameter) => {
           if (localStorage.getItem(parameter) !== null) {
-            mainData['utmParameters'][parameter] = {
-              utm: localStorage.getItem(parameter),
-              label: parameter,
-            };
+            console.log(`${parameter} EXISTS in localStorage!`);
+            // mainData['utmParameters'][parameter] = {
+            //   utm: localStorage.getItem(parameter),
+            //   label: parameter,
+            // };
+            mainData[parameter] = localStorage.getItem(parameter);
           } else {
             console.log(`No ${parameter} in localStorage!`);
           }
