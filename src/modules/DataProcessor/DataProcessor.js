@@ -61,7 +61,7 @@ export const getFormData = (e) => {
               label: parameter,
             };
           } else {
-            console.log(`no ${parameter} in localStorage`);
+            console.log(`No ${parameter} in localStorage`);
           }
         });
 
