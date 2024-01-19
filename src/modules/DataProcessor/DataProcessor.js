@@ -67,7 +67,7 @@ export const getFormData = (e) => {
               [parameter]: localStorage.getItem(parameter),
             };
           } else {
-            console.log(`No ${parameter} in localStorage!`);
+            console.log(`No ${parameter} in localStorage!!`);
           }
         });
 
