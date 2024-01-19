@@ -8,7 +8,7 @@ import {
 
 const App = () => {
   window.addEventListener('load', (e) => {
-    UtmManager();
+    // UtmManager();
     EventManager();
     MetaPixelExtractor();
     getUserAgent();

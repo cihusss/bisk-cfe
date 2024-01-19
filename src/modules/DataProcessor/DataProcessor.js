@@ -1,5 +1,18 @@
 export const mainData = {};
 
+// Define utmParameters array
+const utmParameters = [
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'campaignid',
+  'vendorid',
+  'device',
+  'utm_content',
+  'utm_term',
+  'utm_matchtype',
+];
+
 export const getUserAgent = () => {
   console.log(`\nUSER AGENT EXTRACTOR ------------------------->`);
   console.log('userAgent: ', navigator.userAgent);
@@ -39,6 +52,14 @@ export const getFormData = (e) => {
         // console.log('formVals: ', formVals);
         mainData.formData = formVals;
         mainData.event = 'MarketoFormSubmit';
+
+        utmParameters.forEach((parameter) => {
+          mainData['utmParameters'][parameter] = {
+            utm: localStorage.getItem(parameter),
+            label: parameter,
+          };
+        });
+
         sendToServer();
       });
     });
