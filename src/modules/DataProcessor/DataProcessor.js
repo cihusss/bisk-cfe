@@ -52,16 +52,10 @@ export const getFormData = (e) => {
         // console.log('formVals: ', formVals);
         mainData.formData = formVals;
         mainData.event = 'MarketoFormSubmit';
-
-        // Instantiate URLSearchParams object
+        // Populate mainData with utmParameters from localStorage
         utmParameters.forEach((parameter) => {
           if (localStorage.getItem(parameter) !== null) {
             console.log(`${parameter} EXISTS in localStorage!`);
-            // mainData['utmParameters'][parameter] = {
-            //   utm: localStorage.getItem(parameter),
-            //   label: parameter,
-            // };
-            // mainData[parameter] = localStorage.getItem(parameter);
             mainData.utmParameters = {
               ...mainData.utmParameters,
               [parameter]: localStorage.getItem(parameter),
@@ -70,7 +64,7 @@ export const getFormData = (e) => {
             console.log(`No ${parameter} in localStorage!!`);
           }
         });
-
+        // Send mainData to server
         sendToServer();
       });
     });
