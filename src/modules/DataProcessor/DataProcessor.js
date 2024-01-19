@@ -45,7 +45,7 @@ export const sendToServer = () => {
 };
 
 export const getFormData = (e) => {
-  try {
+  if (typeof MktoForms2 != 'undefined') {
     MktoForms2.whenReady(function (form) {
       form.onSuccess(function (values, followUpUrl) {
         const formVals = form.vals();
@@ -68,9 +68,7 @@ export const getFormData = (e) => {
         sendToServer();
       });
     });
-  } catch (err) {
-    console.log('err', err);
-  } finally {
-    console.log(mainData);
+  } else {
+    console.log('MktoForms2 not defined');
   }
 };
