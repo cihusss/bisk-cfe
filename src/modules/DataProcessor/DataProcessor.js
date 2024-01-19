@@ -61,7 +61,9 @@ export const getFormData = (e) => {
             //   utm: localStorage.getItem(parameter),
             //   label: parameter,
             // };
-            mainData[parameter] = localStorage.getItem(parameter);
+            // mainData[parameter] = localStorage.getItem(parameter);
+            mainData['utmParameters'][parameter] =
+              localStorage.getItem(parameter);
           } else {
             console.log(`No ${parameter} in localStorage!`);
           }
