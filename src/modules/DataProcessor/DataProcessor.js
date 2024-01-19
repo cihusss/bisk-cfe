@@ -54,16 +54,16 @@ export const getFormData = (e) => {
         mainData.event = 'MarketoFormSubmit';
 
         // Instantiate URLSearchParams object
-        try {
-          utmParameters.forEach((parameter) => {
+        utmParameters.forEach((parameter) => {
+          if (localStorage.getItem(parameter)) {
             mainData['utmParameters'][parameter] = {
               utm: localStorage.getItem(parameter),
               label: parameter,
             };
-          });
-        } catch (err) {
-          console.log(`not finding this one in localStorage`, err);
-        }
+          } else {
+            console.log(`no ${parameter} in localStorage`);
+          }
+        });
 
         sendToServer();
       });
