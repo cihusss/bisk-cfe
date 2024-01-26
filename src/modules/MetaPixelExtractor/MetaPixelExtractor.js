@@ -17,5 +17,5 @@ export const MetaPixelExtractor = () => {
   }
 
   // Populate mainData object
-  mainData.metaPixel = metaPixel;
+  mainData.pixel_id = metaPixel;
 };

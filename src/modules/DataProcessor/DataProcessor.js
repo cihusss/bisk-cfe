@@ -13,10 +13,23 @@ const utmParameters = [
   'utm_matchtype',
 ];
 
+const metaCookies = ['fbp', 'fbc'];
+
 export const getUserAgent = () => {
   console.log(`\nUSER AGENT EXTRACTOR ------------------------->`);
   console.log('userAgent: ', navigator.userAgent);
-  mainData.userAgent = navigator.userAgent;
+  mainData.client_user_agent = navigator.userAgent;
+};
+
+export const getMetaCookies = () => {
+  console.log(`\nMETA COOKIE EXTRACTOR ------------------------->`);
+  metaCookies.forEach((metaCookie) => {
+    console.log(metaCookie);
+    mainData[metaCookie] = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith(`_${metaCookie}=`))
+      ?.split('=')[1];
+  });
 };
 
 export const printData = () => {
@@ -26,7 +39,10 @@ export const printData = () => {
 export const sendToServer = () => {
   console.log(`\nSENDING TO SERVER ------------------------->`);
 
-  fetch('https://labs.bisk.com', {
+  // const server_url = 'https://labs.bisk.com/capi';
+  const server_url = 'http://127.0.0.1:3000/capi';
+
+  fetch(server_url, {
     mode: 'cors',
     method: 'POST',
     body: JSON.stringify(mainData),
@@ -51,6 +67,9 @@ export const getFormData = (e) => {
         const formVals = form.vals();
         // console.log('formVals: ', formVals);
         mainData.formData = formVals;
+        mainData.first_name = formVals.FirstName;
+        mainData.last_name = formVals.LastName;
+        mainData.phone = formVals.Phone;
         mainData.event = 'MarketoFormSubmit';
         // Populate mainData with utmParameters from localStorage
         utmParameters.forEach((parameter) => {

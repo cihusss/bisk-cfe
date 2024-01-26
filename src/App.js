@@ -4,6 +4,7 @@ import { UtmManager } from './modules/UtmManager/UtmManager';
 import {
   getUserAgent,
   getFormData,
+  getMetaCookies,
 } from './modules/DataProcessor/DataProcessor';
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
     EventManager();
     MetaPixelExtractor();
     getUserAgent();
+    getMetaCookies();
     getFormData();
   });
 };
