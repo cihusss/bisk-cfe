@@ -70,6 +70,7 @@ export const getFormData = (e) => {
         mainData.first_name = formVals.FirstName;
         mainData.last_name = formVals.LastName;
         mainData.phone = formVals.Phone;
+        mainData.client_ip_address = formVals.TCPA_IP_Address__c;
         mainData.event = 'MarketoFormSubmit';
         // Populate mainData with utmParameters from localStorage
         utmParameters.forEach((parameter) => {
