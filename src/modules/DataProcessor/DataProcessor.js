@@ -39,8 +39,8 @@ export const printData = () => {
 export const sendToServer = () => {
   console.log(`\nSENDING TO SERVER ------------------------->`);
 
-  // const server_url = 'https://labs.bisk.com/capi';
-  const server_url = 'http://127.0.0.1:3000/capi';
+  const server_url = 'https://labs.bisk.com/capi';
+  // const server_url = 'http://127.0.0.1:3000/capi';
 
   fetch(server_url, {
     mode: 'cors',
