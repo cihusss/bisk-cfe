@@ -16,4 +16,5 @@ Front-end script which extracts and sends the below data to the CAPI Back-end En
 * City
 * State
 
-*Always include in the footer of the page.*
+*Always include in the footer of the page:*
+https://cihusss.github.io/bisk-cfe/dist/cfe-bundle.js
