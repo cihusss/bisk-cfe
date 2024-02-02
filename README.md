@@ -6,8 +6,8 @@ Front-end script which extracts and sends the below data to the CAPI Back-end En
 * User Agent
 * Phone number
 * Browser ID (fbp)
+* * Click ID (fbc)
 * IP Address
-* Facebook Login ID
 * External ID
 * Date of Birth
 * First Name
@@ -15,4 +15,3 @@ Front-end script which extracts and sends the below data to the CAPI Back-end En
 * ZIP code
 * City
 * State
-* Click ID (fbc)
