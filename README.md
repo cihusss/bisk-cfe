@@ -6,7 +6,7 @@ Front-end script which extracts and sends the below data to the CAPI Back-end En
 * User Agent
 * Phone number
 * Browser ID (fbp)
-* * Click ID (fbc)
+* Click ID (fbc)
 * IP Address
 * External ID
 * Date of Birth
