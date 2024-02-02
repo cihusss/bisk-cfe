@@ -16,5 +16,5 @@ Front-end (java)script which extracts and sends the below data to the CAPI Back-
 * City (pending)
 * State (pending)
 
-*Always include in the footer of the page:*
+*Always include in the footer of a page:*
 https://cihusss.github.io/bisk-cfe/dist/cfe-bundle.js
