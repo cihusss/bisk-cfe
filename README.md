@@ -7,14 +7,14 @@ Front-end (java)script which extracts and sends the below data to the CAPI Back-
 * Phone number
 * Browser ID (fbp)
 * Click ID (fbc)
-* IP Address
 * External ID
 * Date of Birth
 * First Name
 * Last Name
-* ZIP code
-* City
-* State
+* IP Address (pending)
+* ZIP code (pending)
+* City (pending)
+* State (pending)
 
 *Always include in the footer of the page:*
 https://cihusss.github.io/bisk-cfe/dist/cfe-bundle.js
