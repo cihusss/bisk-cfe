@@ -15,3 +15,5 @@ Front-end script which extracts and sends the below data to the CAPI Back-end En
 * ZIP code
 * City
 * State
+
+_ Always include in the footer of the page.
