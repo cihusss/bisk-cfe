@@ -1,6 +1,6 @@
 ## Bisk CAPI Front-end Engine
 
-Front-end script which extracts and sends the below data to the CAPI Back-end Engine:
+Front-end (java)script which extracts and sends the below data to the CAPI Back-end Engine:
 
 * Email
 * User Agent
