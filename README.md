@@ -8,7 +8,7 @@ Front-end (java)script which extracts and sends the below data to the CAPI Back-
 * Browser ID (fbp)
 * Click ID (fbc)
 * External ID
-* Date of Birth
+* Date of Birth (is it worth?)
 * First Name
 * Last Name
 * IP Address (pending)
