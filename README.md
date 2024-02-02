@@ -16,4 +16,4 @@ Front-end script which extracts and sends the below data to the CAPI Back-end En
 * City
 * State
 
-_ Always include in the footer of the page.
+*Always include in the footer of the page.*
