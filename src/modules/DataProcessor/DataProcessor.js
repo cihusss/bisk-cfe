@@ -47,7 +47,6 @@ export const getIpData = () => {
 
 export const getSourceUrl = () => {
   mainData['event_source_url'] = window.location.href;
-  console.log(mainData);
 };
 
 export const printData = () => {
@@ -57,8 +56,8 @@ export const printData = () => {
 export const sendToServer = () => {
   console.log(`\nSENDING TO SERVER ------------------------->`);
 
-  // const server_url = 'https://labs.bisk.com/capi';
-  const server_url = 'http://127.0.0.1:3000/capi';
+  const server_url = 'https://labs.bisk.com/capi';
+  // const server_url = 'http://127.0.0.1:3000/capi';
 
   fetch(server_url, {
     mode: 'cors',
@@ -90,7 +89,7 @@ export const getFormData = (e) => {
         mainData.phone = formVals.Phone;
         mainData.email = formVals.Email;
         // mainData.client_ip_address = formVals.TCPA_IP_Address__c;
-        mainData.event = 'MarketoFormSubmit';
+        mainData.event_name = 'MarketoFormSubmit';
         // Populate mainData with utmParameters from localStorage
         utmParameters.forEach((parameter) => {
           if (localStorage.getItem(parameter) !== null) {
