@@ -32,6 +32,24 @@ export const getMetaCookies = () => {
   });
 };
 
+export const getIpData = () => {
+  fetch('https://ipinfo.io/json?token=596e24d86147cf')
+    .then((response) => response.json())
+    .then((jsonResponse) => {
+      console.log(jsonResponse.ip, jsonResponse.country);
+      mainData.client_ip_address = jsonResponse.ip;
+      mainData.city = jsonResponse.city;
+      mainData.state = jsonResponse.region;
+      mainData.zip_code = jsonResponse.postal;
+      mainData.country = jsonResponse.country;
+    });
+};
+
+export const getSourceUrl = () => {
+  mainData['event_source_url'] = window.location.href;
+  console.log(mainData);
+};
+
 export const printData = () => {
   console.log('\n' + mainData);
 };
@@ -39,8 +57,8 @@ export const printData = () => {
 export const sendToServer = () => {
   console.log(`\nSENDING TO SERVER ------------------------->`);
 
-  const server_url = 'https://labs.bisk.com/capi';
-  // const server_url = 'http://127.0.0.1:3000/capi';
+  // const server_url = 'https://labs.bisk.com/capi';
+  const server_url = 'http://127.0.0.1:3000/capi';
 
   fetch(server_url, {
     mode: 'cors',
@@ -70,7 +88,8 @@ export const getFormData = (e) => {
         mainData.first_name = formVals.FirstName;
         mainData.last_name = formVals.LastName;
         mainData.phone = formVals.Phone;
-        mainData.client_ip_address = formVals.TCPA_IP_Address__c;
+        mainData.email = formVals.Email;
+        // mainData.client_ip_address = formVals.TCPA_IP_Address__c;
         mainData.event = 'MarketoFormSubmit';
         // Populate mainData with utmParameters from localStorage
         utmParameters.forEach((parameter) => {

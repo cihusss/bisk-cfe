@@ -5,6 +5,9 @@ import {
   getUserAgent,
   getFormData,
   getMetaCookies,
+  getIpData,
+  getSourceUrl,
+  printData,
 } from './modules/DataProcessor/DataProcessor';
 
 const App = () => {
@@ -15,6 +18,8 @@ const App = () => {
     getUserAgent();
     getMetaCookies();
     getFormData();
+    getIpData();
+    getSourceUrl();
   });
 };
 
