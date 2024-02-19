@@ -1,7 +1,7 @@
 import { mainData } from '../DataProcessor/DataProcessor';
 
 export const MetaPixelExtractor = () => {
-  console.log(`\nMETA PIXEL EXTRACTOR -------------------------->`);
+  console.log(`\nMETA PIXEL EXTRACTOR -------------------------->!`);
 
   let metaPixel;
   const scripts = document.querySelectorAll('script');
