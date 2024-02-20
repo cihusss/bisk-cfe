@@ -13,7 +13,9 @@ export const MetaPixelExtractor = () => {
       try {
         metaPixel = scripts[i].innerText;
         metaPixel = metaPixel.split('"init","')[1];
-        metaPixel = metaPixel.split('");')[0];
+        metaPixel =
+          metaPixel.split('");')[0] ||
+          metaPixel.split('",fb_advanced_matching);')[0];
         console.log('metaPixelID:', metaPixel);
         metaPixels.push(metaPixel);
       } catch (err) {
@@ -23,6 +25,7 @@ export const MetaPixelExtractor = () => {
   }
 
   // Populate mainData object
+  console.log('metaPixels:', metaPixels);
   mainData.pixel_id = metaPixels[0];
   // mainData.pixel_id = '316369316621022';
 };
