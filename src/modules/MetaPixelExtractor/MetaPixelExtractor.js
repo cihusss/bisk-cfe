@@ -4,6 +4,7 @@ export const MetaPixelExtractor = () => {
   console.log(`\nMETA PIXEL EXTRACTOR -------------------------->!`);
 
   let metaPixel;
+  let metaPixels = [];
   const scripts = document.querySelectorAll('script');
 
   // Extract meta pixel ID
@@ -14,6 +15,7 @@ export const MetaPixelExtractor = () => {
         metaPixel = metaPixel.split('"init","')[1];
         metaPixel = metaPixel.split('");')[0];
         console.log('metaPixelID:', metaPixel);
+        metaPixels.push(metaPixel);
       } catch (err) {
         console.log('Error extracting metaPixelID:', err);
       }
@@ -21,6 +23,6 @@ export const MetaPixelExtractor = () => {
   }
 
   // Populate mainData object
-  mainData.pixel_id = metaPixel;
+  mainData.pixel_id = metaPixels[0];
   // mainData.pixel_id = '316369316621022';
 };
