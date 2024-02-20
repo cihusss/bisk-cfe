@@ -13,9 +13,13 @@ export const MetaPixelExtractor = () => {
       try {
         metaPixel = scripts[i].innerText;
         metaPixel = metaPixel.split('"init","')[1];
-        metaPixel =
-          metaPixel.split('");')[0] ||
-          metaPixel.split('",fb_advanced_matching);')[0];
+
+        if (metaPixel.includes('",fb_advanced_matching);')) {
+          metaPixel = metaPixel.split('",fb_advanced_matching);')[0];
+        } else {
+          metaPixel = metaPixel.split('");')[0];
+        }
+
         console.log('metaPixelID:', metaPixel);
         metaPixels.push(metaPixel);
       } catch (err) {
