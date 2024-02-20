@@ -21,20 +21,14 @@ export const MetaPixelExtractor = () => {
         console.log('metaPixelID:', metaPixel);
         metaPixels.push(metaPixel);
       } catch (err) {
-        console.log('Error extracting metaPixelID:', err);
+        // console.log('Error extracting metaPixelID:', err);
       }
     }
   }
 
   // Populate mainData object
   console.log('metaPixels:', metaPixels);
-
   metaPixels.forEach((pixel, index) => {
     mainData[`pixel_0${index + 1}`] = pixel;
   });
-
-  console.log('mainData:', mainData);
-
-  // mainData.pixel_id = metaPixels[0];
-  // mainData.pixel_id = '316369316621022';
 };
