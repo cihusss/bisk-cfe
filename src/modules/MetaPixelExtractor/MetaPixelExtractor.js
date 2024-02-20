@@ -28,7 +28,5 @@ export const MetaPixelExtractor = () => {
 
   // Populate mainData object
   console.log('metaPixels:', metaPixels);
-  metaPixels.forEach((pixel, index) => {
-    mainData[`pixel_0${index + 1}`] = pixel;
-  });
+  mainData['meta_pixels'] = metaPixels;
 };
