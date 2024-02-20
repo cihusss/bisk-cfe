@@ -13,7 +13,9 @@ export const MetaPixelExtractor = () => {
       try {
         metaPixel = scripts[i].innerText;
         metaPixel = metaPixel.split('"init","')[1];
-        metaPixel = metaPixel.split('");')[0] || metaPixel.split(',fb_a')[0];
+        metaPixel =
+          metaPixel.split('");')[0] ||
+          metaPixel.split('",fb_advanced_matching);')[0];
         console.log('metaPixelID:', metaPixel);
         metaPixels.push(metaPixel);
       } catch (err) {
