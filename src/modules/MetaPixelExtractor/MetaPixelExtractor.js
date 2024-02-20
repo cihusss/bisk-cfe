@@ -13,13 +13,11 @@ export const MetaPixelExtractor = () => {
       try {
         metaPixel = scripts[i].innerText;
         metaPixel = metaPixel.split('"init","')[1];
-
         if (metaPixel.includes('",fb_advanced_matching);')) {
           metaPixel = metaPixel.split('",fb_advanced_matching);')[0];
         } else {
           metaPixel = metaPixel.split('");')[0];
         }
-
         console.log('metaPixelID:', metaPixel);
         metaPixels.push(metaPixel);
       } catch (err) {
@@ -30,6 +28,13 @@ export const MetaPixelExtractor = () => {
 
   // Populate mainData object
   console.log('metaPixels:', metaPixels);
-  mainData.pixel_id = metaPixels[0];
+
+  metaPixels.forEach((pixel, index) => {
+    mainData[`pixel_0${index + 1}`] = pixel;
+  });
+
+  console.log('mainData:', mainData);
+
+  // mainData.pixel_id = metaPixels[0];
   // mainData.pixel_id = '316369316621022';
 };
