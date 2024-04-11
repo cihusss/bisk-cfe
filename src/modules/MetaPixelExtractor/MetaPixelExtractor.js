@@ -1,7 +1,7 @@
 import { mainData } from '../DataProcessor/DataProcessor';
 
 export const MetaPixelExtractor = () => {
-  console.log(`\nMETA PIXEL EXTRACTOR -------------------------->!`);
+  // console.log(`\nMETA PIXEL EXTRACTOR -------------------------->!`);
 
   let metaPixel;
   let metaPixels = [];
@@ -18,7 +18,7 @@ export const MetaPixelExtractor = () => {
         } else {
           metaPixel = metaPixel.split('");')[0];
         }
-        console.log('metaPixelID:', metaPixel);
+        // console.log('metaPixelID:', metaPixel);
         metaPixels.push(metaPixel);
       } catch (err) {
         // console.log('Error extracting metaPixelID:', err);
@@ -27,6 +27,6 @@ export const MetaPixelExtractor = () => {
   }
 
   // Populate mainData object
-  console.log('metaPixels:', metaPixels);
+  // console.log('metaPixels:', metaPixels);
   mainData['meta_pixels'] = metaPixels;
 };

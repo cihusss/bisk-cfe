@@ -3,7 +3,7 @@ import { EventDispatcher } from './EventDispatcher';
 export const EventManager = (e) => {
   // Get all buttons from dom
   const elements = document.querySelectorAll(
-    '.form-btn,.cfe-trigger, .mktoButton'
+    '.form-btn, .cfe-trigger, .mktoButton'
   );
 
   // Add event listener to all buttons

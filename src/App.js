@@ -8,11 +8,12 @@ import {
   getIpData,
   getSourceUrl,
   printData,
+  getHostname,
 } from './modules/DataProcessor/DataProcessor';
 
 const App = () => {
   window.addEventListener('load', (e) => {
-    // UtmManager();
+    UtmManager();
     EventManager();
     MetaPixelExtractor();
     getUserAgent();
@@ -20,6 +21,7 @@ const App = () => {
     getFormData();
     getIpData();
     getSourceUrl();
+    getHostname();
   });
 };
 

@@ -23,6 +23,16 @@ export const UtmManager = () => {
     label: 'utm_campaign',
   };
 
+  // Populate gclid/wbraid/gbraid
+  const gParams = ['gclid', 'wbraid', 'gbraid'];
+  gParams.forEach((param) => {
+    utmData[param] = {
+      utm: searchParams.get(param),
+      localStorage: localStorage.getItem(param),
+      label: param,
+    };
+  });
+
   // log utmData object
   // console.log('utmData:', utmData);
 
@@ -40,4 +50,7 @@ export const UtmManager = () => {
   // Populate mainData object
   mainData.utmMedium = localStorage.getItem('utm_medium');
   mainData.utmCampaign = localStorage.getItem('utm_campaign');
+  mainData.gclid = localStorage.getItem('gclid');
+  mainData.wbraid = localStorage.getItem('wbraid');
+  mainData.gbraid = localStorage.getItem('gbraid');
 };

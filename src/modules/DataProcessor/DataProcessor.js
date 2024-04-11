@@ -16,15 +16,15 @@ const utmParameters = [
 const metaCookies = ['fbp', 'fbc'];
 
 export const getUserAgent = () => {
-  console.log(`\nUSER AGENT EXTRACTOR ------------------------->`);
-  console.log('userAgent: ', navigator.userAgent);
   mainData.client_user_agent = navigator.userAgent;
 };
 
+export const getHostname = () => {
+  mainData.hostname = window.location.host;
+};
+
 export const getMetaCookies = () => {
-  console.log(`\nMETA COOKIE EXTRACTOR ------------------------->`);
   metaCookies.forEach((metaCookie) => {
-    console.log(metaCookie);
     mainData[metaCookie] = document.cookie
       .split('; ')
       .find((row) => row.startsWith(`_${metaCookie}=`))
@@ -36,7 +36,6 @@ export const getIpData = () => {
   fetch('https://ipinfo.io/json?token=596e24d86147cf')
     .then((response) => response.json())
     .then((jsonResponse) => {
-      console.log(jsonResponse.ip, jsonResponse.country);
       mainData.client_ip_address = jsonResponse.ip;
       mainData.city = jsonResponse.city;
       mainData.state = jsonResponse.region;
@@ -49,31 +48,45 @@ export const getSourceUrl = () => {
   mainData['event_source_url'] = window.location.href;
 };
 
-export const printData = () => {
-  console.log('\n' + mainData);
-};
+export const getGoogleData = () => {};
+
+export const printData = () => {};
 
 export const sendToServer = () => {
-  console.log(`\nSENDING TO SERVER ------------------------->`);
+  let server_base_url = '';
+  let server_route = '';
+  if (window.location.href.includes('localhost')) {
+    server_base_url = 'http://localhost:3000';
+  } else {
+    server_base_url = 'https://labs.bisk.com';
+  }
+  if (
+    mainData.gclid !== null ||
+    mainData.wbraid !== null ||
+    mainData.gbraid !== null
+  ) {
+    server_route = '/google';
+  } else {
+    server_route = '/capi';
+  }
 
-  const server_url = 'https://labs.bisk.com/capi';
-  // const server_url = 'http://127.0.0.1:3000/capi';
-
-  fetch(server_url, {
+  fetch(`${server_base_url}${server_route}`, {
     mode: 'cors',
     method: 'POST',
     body: JSON.stringify(mainData),
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
   })
     .then((response) => {
-      console.log('response', response);
       return response.json();
     })
     .then((json) => {
-      console.log('json', json);
+      // console.log('json', json);
     })
     .catch((err) => {
-      console.log('err', err);
+      // console.log('err', err);
     });
 };
 
@@ -93,13 +106,13 @@ export const getFormData = (e) => {
         // Populate mainData with utmParameters from localStorage
         utmParameters.forEach((parameter) => {
           if (localStorage.getItem(parameter) !== null) {
-            console.log(`${parameter} EXISTS in localStorage!`);
+            // console.log(`${parameter} EXISTS in localStorage!`);
             mainData.utmParameters = {
               ...mainData.utmParameters,
               [parameter]: localStorage.getItem(parameter),
             };
           } else {
-            console.log(`No ${parameter} in localStorage!!`);
+            // console.log(`No ${parameter} in localStorage!!`);
           }
         });
         // Send mainData to server
@@ -107,6 +120,6 @@ export const getFormData = (e) => {
       });
     });
   } else {
-    console.log('MktoForms2 not defined');
+    // console.log('MktoForms2 not defined');
   }
 };
