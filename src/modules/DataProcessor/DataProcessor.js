@@ -60,11 +60,7 @@ export const sendToServer = () => {
   } else {
     server_base_url = 'https://labs.bisk.com';
   }
-  if (
-    mainData.gclid !== null ||
-    mainData.wbraid !== null ||
-    mainData.gbraid !== null
-  ) {
+  if (mainData.gclid !== '' || mainData.wbraid !== '' || mainData.gbraid !== '') {
     server_route = '/google';
   } else {
     server_route = '/capi';

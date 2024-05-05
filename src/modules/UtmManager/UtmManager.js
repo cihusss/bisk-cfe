@@ -9,21 +9,14 @@ export const UtmManager = () => {
   // Instantiate utmData object
   const utmData = {};
 
-  // Populate utmData object
+  // Populate utmData object with source
   utmData.medium = {
-    utm: searchParams.get('utm_medium'),
-    localStorage: localStorage.getItem('utm_medium'),
-    label: 'utm_medium',
+    utm: searchParams.get('utm_source'),
+    localStorage: localStorage.getItem('utm_source'),
+    label: 'utm_source',
   };
 
-  // Populate utmData object
-  utmData.campaign = {
-    utm: searchParams.get('utm_campaign'),
-    localStorage: localStorage.getItem('utm_campaign'),
-    label: 'utm_campaign',
-  };
-
-  // Populate gclid/wbraid/gbraid
+  // Populate utmData object with gclid/wbraid/gbraid
   const gParams = ['gclid', 'wbraid', 'gbraid'];
   gParams.forEach((param) => {
     utmData[param] = {
@@ -33,24 +26,32 @@ export const UtmManager = () => {
     };
   });
 
-  // log utmData object
-  // console.log('utmData:', utmData);
-
-  // Run UtmHandler for each utmData object
+  // Run UtmHandler for each utmData key (populate localStorage and cookies)
   for (let key in utmData) {
     if (utmData[key].utm) {
-      UtmHandler(
-        utmData[key].utm,
-        utmData[key].localStorage,
-        utmData[key].label
-      );
+      UtmHandler(utmData[key].utm, utmData[key].localStorage, utmData[key].label);
     }
   }
 
-  // Populate mainData object
-  mainData.utmMedium = localStorage.getItem('utm_medium');
-  mainData.utmCampaign = localStorage.getItem('utm_campaign');
-  mainData.gclid = localStorage.getItem('gclid');
-  mainData.wbraid = localStorage.getItem('wbraid');
-  mainData.gbraid = localStorage.getItem('gbraid');
+  const getCookie = (cname) => {
+    let name = cname + '=';
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return '';
+  };
+
+  mainData.gclid = getCookie('gclid');
+  mainData.wbraid = getCookie('wbraid');
+  mainData.gbraid = getCookie('gbraid');
+  mainData.utmSource = getCookie('utm_source');
+  console.log('mainData:', mainData);
 };
