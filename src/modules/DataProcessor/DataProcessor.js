@@ -62,28 +62,34 @@ export const sendToServer = () => {
   }
   if (mainData.gclid !== '' || mainData.wbraid !== '' || mainData.gbraid !== '') {
     server_route = '/google';
-  } else {
+  } else if (mainData.utmSource === 'facebook.com' || mainData.utmSource === 'facebook') {
     server_route = '/capi';
+  } else {
+    server_route = null;
   }
 
-  fetch(`${server_base_url}${server_route}`, {
-    mode: 'cors',
-    method: 'POST',
-    body: JSON.stringify(mainData),
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-    },
-  })
-    .then((response) => {
-      return response.json();
+  if (server_route !== null) {
+    console.log('server_route: ', server_route);
+
+    fetch(`${server_base_url}${server_route}`, {
+      mode: 'cors',
+      method: 'POST',
+      body: JSON.stringify(mainData),
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
     })
-    .then((json) => {
-      // console.log('json', json);
-    })
-    .catch((err) => {
-      // console.log('err', err);
-    });
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        // console.log('json', json);
+      })
+      .catch((err) => {
+        // console.log('err', err);
+      });
+  }
 };
 
 export const getFormData = (e) => {

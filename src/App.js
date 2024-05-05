@@ -12,7 +12,7 @@ import {
 } from './modules/DataProcessor/DataProcessor';
 
 const App = () => {
-  console.log('capi-fe v.104 running...');
+  console.log('capi-fe v.105 running...');
   window.addEventListener('load', (e) => {
     UtmManager();
     EventManager();
